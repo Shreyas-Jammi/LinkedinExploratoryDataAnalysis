@@ -34,30 +34,16 @@ table = WebDriverWait(driver, timeout=5).until(lambda d: d.find_element(By.ID,"i
 # Goes through each entry and prints the name 
 # Edge case tr not holding a name but is an advert (hence try catch)
 
-#linux and mac
-#try:
-#    print("asdf")
-#    try:
-#        print("butt")
-#        subprocess.run("cd data/", shell=True)
-#    except:
-#        print("ass")
-#        subprocess.run("mkdir data", shell=True)
-#        subprocess.run("cd data/", shell=True)
-#    subprocess.run("touch internshipdata.txt", shell=True)
-#except:
-#    print("cum")
-#    try:
-#        subprocess.run("cd data/", shell=False)
-#    except:
-#        subprocess.run("mkdir data", shell=False)
-#        subprocess.run("cd data/", shell=False)
-#    subprocess.run("touch internshipdata.txt", shell=False)
+# this creates a text file in both linux/Mac computers and Windows Computers
 try:
     subprocess.run("touch internshipdata.txt", shell=True)
 except:
     subprocess.run("touch internshipdata.txt", shell=False)
 karp = open("internshipdata.txt", "w")
+
+
+# Goes through each entry and adds name to text file
+# Edge case tr not holding a name but is an advert (hence try catch)
 for entry in table.find_elements(By.TAG_NAME, "tr"):
     try:
         tmp = entry.find_element(By.TAG_NAME,"h6").text
