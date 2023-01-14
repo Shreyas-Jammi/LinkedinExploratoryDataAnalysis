@@ -1,0 +1,2 @@
+this is a place holder text to make folder for git
+please delete when there is something to add to this folder
